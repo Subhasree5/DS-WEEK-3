@@ -1,0 +1,187 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX 5
+int stack[MAX];
+int top=-1;
+void push(int);
+void pop();
+void display();
+int main()
+{
+	int choice,item;
+	while(1)
+	{
+		printf("\n MENU \n");
+		printf("1.Push \n");
+		printf("2.Pop \n");
+		printf("3.Display\n");
+		printf("4.Exit\n");
+		printf("Enter your choice");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1: printf("Enter the element to be inserted:");
+			       scanf("%d",&item);
+			       push(item);
+			       break;
+			case 2: pop();
+			       break;
+			case 3: display();
+			       break;
+			case 4: exit(0);
+			default: printf("Invalid choice \n");
+		}
+	}
+}
+void push(int item)
+{
+	if(top==MAX-1)
+		printf("Stack Overflow \n");
+	else
+	{
+		stack[++top]=item;
+		printf("Element inserted \n");
+	}
+}
+void pop()
+{
+	if(top==-1)
+		printf("Stack Underflow \n");						       
+	else
+		printf("Element deleted:%d",stack[top--]);
+}
+void display()
+{
+	int i;
+	if(top==-1)
+		printf("Stack is empty \n");
+	else
+	{
+		printf("Stack Content:\n");
+		for(i=top;i>=0;i--)
+			printf("  %d",stack[i]);					              
+	}
+}			
+OUTPUT:
+MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice1
+Enter the element to be inserted:10
+Element inserted 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice1
+Enter the element to be inserted:20
+Element inserted 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice1
+Enter the element to be inserted:30
+Element inserted 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice1
+Enter the element to be inserted:40
+Element inserted 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice1
+Enter the element to be inserted:50
+Element inserted 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice1
+Enter the element to be inserted:60
+Stack Overflow 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice3
+Stack Content:
+  50  40  30  20  10
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice2
+Element deleted:50
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice2
+Element deleted:40
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice2
+Element deleted:30
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice2
+Element deleted:20
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice2
+Element deleted:10
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice2
+Stack Underflow 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice3
+Stack is empty 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display
+4.Exit
+Enter your choice4
+
+
+=== Code Execution Successful ===
