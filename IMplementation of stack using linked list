@@ -1,0 +1,153 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node *next;
+};
+typedef struct node NODE;
+NODE *head=NULL;
+void insert_front(int);
+void delete_front();
+void display();
+int main()
+{
+	int choice,item;
+	while(1)
+	{
+		printf("\n MENU \n");
+		printf("1.Push \n");
+		printf("2.Pop \n");
+		printf("3.Display \n");
+		printf("4.Exit \n");
+		printf("Enter your choice:");
+		scanf("%d",&choice);
+		switch(choice)
+		{
+			case 1: printf("Enter the element to be inserted:");
+			       scanf("%d",&item);
+			       insert_front(item);
+			       break;
+			case 2: delete_front();
+			       break;
+			case 3: display();
+			       break;
+			case 4: exit(0);
+			default: printf("Invalid choice");
+		}
+	}
+}
+void insert_front(int item)
+{
+	NODE *temp;
+	temp=(NODE*)malloc(sizeof(NODE));
+	temp->data=item;		
+	temp->next=head;
+	head=temp;
+}
+void delete_front()
+{
+	NODE *temp;
+	if(head==NULL)
+		printf("List is empty \n");
+	else
+	{
+		temp=head;
+		head=head->next;
+		printf("Element Deleted:%d",temp->data);
+		free(temp);
+	}
+}
+void display()
+{
+	NODE *temp=head;
+	if(head==NULL)
+		printf("List is Empty \n");
+	else
+	{
+		printf("List Content: \n");	
+		while(temp!=NULL)
+		{
+			printf(" %d",temp->data);
+			temp=temp->next;
+		}
+	}
+}									
+OUTPUT:
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:1
+Enter the element to be inserted:10
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:1
+Enter the element to be inserted:20
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:1
+Enter the element to be inserted:30
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:3
+List Content: 
+ 30 20 10
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:2
+Element Deleted:30
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:2
+Element Deleted:20
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:2
+Element Deleted:10
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:2
+List is empty 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:3
+List is Empty 
+
+ MENU 
+1.Push 
+2.Pop 
+3.Display 
+4.Exit 
+Enter your choice:4
+
+
+=== Code Execution Successful ===
