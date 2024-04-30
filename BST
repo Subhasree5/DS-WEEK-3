@@ -1,0 +1,76 @@
+/*implementation of BST using linked list */
+#include<stdio.h>
+#include<tdlib.h>
+struct node{
+	struct node *lchild;
+	struct node *rchild;
+	int data;
+};
+typedef struct node NODE;
+NODE* insert(NODE*,int);
+void inorder(NODE*);
+void preorder(NODE*);
+void postorder(NODE*);
+int count_nodes(NODE*);
+int main()
+{
+	int choice,key;
+	while(1)
+	{
+		printf("\n MENU \n");
+		printf("1.Insert \n");
+		printf("2.Inorder traversal \n");
+		printf("3.Preorder traversal \n"):
+		printf("4.Postorder traversal
+		
+	}
+}	
+void inorder(NODE *root)
+{
+	if(root!=NULL)
+	{
+		inorder(root->lchid);
+		printf("%d",root->data);
+		inorder(root->rchild);
+	}	
+}
+void preorder(NODE *root);
+{
+	if(root!=NULL)
+	{
+		printf("%d",root->data);
+		preorder(root->lchild);
+		preorder(root->rchild);
+	}
+}
+void postorder(NODE *root)
+{
+	if(root!=NULL)
+	{
+		postorder(root->lchild);
+		postorder(root->rchild);
+		printf("%d",root->data);
+	}
+}
+NODE* insert(NODE *root,int key)
+{
+	if(root==NULL)
+	{
+		root=(NODE*)malloc(sizeof(NODE));
+		root->data=key;
+		root->lchild=NULL;
+		root->rchild=NULL;
+	}
+	else if(key<root->data)
+	{
+		root->lchild=insert(root->lchild,key);
+	}
+	else
+	{
+		root->rchild=insert(root->rchild,key);
+	}		
+}
+int count_nodes(NODE *root)	
+{
+
+}
